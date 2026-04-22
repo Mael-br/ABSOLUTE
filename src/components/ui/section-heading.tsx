@@ -12,13 +12,13 @@ export function SectionHeading({
   action?: ReactNode;
 }) {
   return (
-    <div className="section-heading">
+    <div className="section-heading fade-up">
       <div>
         <span className="eyebrow">{eyebrow}</span>
         <h2>{title}</h2>
         <p>{description}</p>
       </div>
-      {action ? <div>{action}</div> : null}
+      {action ? <div className="section-heading__action fade-in reveal-delay-2">{action}</div> : null}
     </div>
   );
 }

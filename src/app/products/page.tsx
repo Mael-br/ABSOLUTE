@@ -12,23 +12,23 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <div className="page-shell">
-      <section className="container page-hero">
+      <section className="container page-hero fade-up">
         <span className="eyebrow eyebrow--pill">Produtos</span>
-        <h1>Escolha uma solução pronta e evolua com personalizações sob medida.</h1>
+        <h1>Escolha uma solucao pronta e evolua com personalizacoes sob medida.</h1>
         <p>
-          Nossos produtos aceleram o início do projeto sem abrir mão de performance, design premium e arquitetura
-          escalável.
+          Nossos produtos aceleram o inicio do projeto sem abrir mao de performance, design premium e arquitetura
+          escalavel.
         </p>
       </section>
 
       <section className="container section">
         <SectionHeading
-          eyebrow="Catálogo"
-          title="Soluções disponíveis para compra"
-          description="Todos os produtos entram em checkout com PagBank e ficam disponíveis para acompanhamento no seu dashboard."
+          eyebrow="Catalogo"
+          title="Solucoes disponiveis para compra"
+          description="Todos os produtos entram em checkout com PagBank e ficam disponiveis para acompanhamento no seu dashboard."
         />
 
-        <div className="feature-grid feature-grid--three">
+        <div className="feature-grid feature-grid--three stagger-grid">
           {catalog.map((product) => (
             <article key={product.slug} className="glass-card product-card product-card--detailed">
               <div className="product-card__header">
@@ -49,4 +49,3 @@ export default function ProductsPage() {
     </div>
   );
 }
-

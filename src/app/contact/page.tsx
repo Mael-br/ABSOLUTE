@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="page-shell">
-      <section className="container page-hero">
+      <section className="container page-hero fade-up">
         <span className="eyebrow eyebrow--pill">Contato</span>
-        <h1>Conte o desafio. Nós desenhamos a solução.</h1>
+        <h1>Conte o desafio. Nos desenhamos a solucao.</h1>
         <p>
-          Envie o contexto do projeto para receber um direcionamento inicial, proposta estratégica e próximos passos
+          Envie o contexto do projeto para receber um direcionamento inicial, proposta estrategica e proximos passos
           com o time da Absolute.
         </p>
       </section>
@@ -23,7 +23,7 @@ export default function ContactPage() {
       <section className="container section contact-layout">
         <ContactForm />
 
-        <div className="contact-info">
+        <div className="contact-info stagger-grid">
           <article className="glass-card contact-info__card">
             <div className="service-card__icon">
               <MailIcon className="icon" />
@@ -46,4 +46,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

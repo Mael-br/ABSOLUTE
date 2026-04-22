@@ -9,29 +9,29 @@ export default function HomePage() {
   return (
     <div className="page-shell">
       <section className="container hero">
-        <div className="hero__content">
-          <span className="eyebrow eyebrow--pill">Tecnologia • Inovação • Resultados</span>
+        <div className="hero__content fade-up">
+          <span className="eyebrow eyebrow--pill">Tecnologia • Inovacao • Resultados</span>
           <h1>
-            Inteligência sob medida.
+            Inteligencia sob medida.
             <br />
-            <span>Automação sem limites.</span>
+            <span>Automacao sem limites.</span>
           </h1>
           <p>
             Bots inteligentes personalizados, websites de alto desempenho e APIs customizadas para escalar a sua
-            operação com sofisticação, velocidade e segurança.
+            operacao com sofisticacao, velocidade e seguranca.
           </p>
 
           <div className="hero__actions">
             <Link href="/services" className="button button--primary">
-              Conheça nossos serviços
+              Conheca nossos servicos
               <ArrowIcon className="button__icon" />
             </Link>
             <Link href="/products" className="button button--ghost">
-              Ver soluções
+              Ver solucoes
             </Link>
           </div>
 
-          <div className="stats-grid">
+          <div className="stats-grid stagger-grid">
             {stats.map((stat) => (
               <div key={stat.label} className="stat-card">
                 <strong>{stat.value}</strong>
@@ -41,7 +41,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hero-visual glass-card">
+        <div className="hero-visual glass-card fade-in reveal-delay-2">
           <div className="hero-visual__halo" />
           <div className="hero-visual__ring" />
           <div className="hero-visual__symbol">
@@ -55,12 +55,12 @@ export default function HomePage() {
 
       <section className="container section">
         <SectionHeading
-          eyebrow="Nossos serviços"
-          title="Soluções inteligentes para cada desafio"
-          description="Projetamos experiências digitais completas com design premium, engenharia sólida e foco real em resultado."
+          eyebrow="Nossos servicos"
+          title="Solucoes inteligentes para cada desafio"
+          description="Projetamos experiencias digitais completas com design premium, engenharia solida e foco real em resultado."
         />
 
-        <div className="feature-grid feature-grid--three">
+        <div className="feature-grid feature-grid--three stagger-grid">
           {services.map((service, index) => {
             const Icon = index === 0 ? BotIcon : index === 1 ? CodeIcon : DatabaseIcon;
 
@@ -86,7 +86,7 @@ export default function HomePage() {
       </section>
 
       <section className="container section">
-        <div className="glass-panel technology-strip">
+        <div className="glass-panel technology-strip fade-up reveal-delay-1">
           <span className="eyebrow">Tecnologias que utilizamos</span>
           <div className="technology-strip__items">
             {technologies.map((tech) => (
@@ -97,14 +97,14 @@ export default function HomePage() {
       </section>
 
       <section className="container section">
-        <div className="glass-panel reason-panel">
+        <div className="glass-panel reason-panel fade-up">
           <SectionHeading
             eyebrow="Diferenciais"
             title="Por que escolher a Absolute?"
-            description="Unimos tecnologia de ponta com estratégia para entregar soluções que realmente mudam a forma como o seu negócio opera."
+            description="Unimos tecnologia de ponta com estrategia para entregar solucoes que realmente mudam a forma como o seu negocio opera."
           />
 
-          <div className="feature-grid feature-grid--four">
+          <div className="feature-grid feature-grid--four stagger-grid">
             {whyChooseUs.map((item, index) => {
               const Icon = index === 0 ? BoltIcon : index === 1 ? ShieldIcon : index === 2 ? CodeIcon : SupportIcon;
 
@@ -125,16 +125,16 @@ export default function HomePage() {
       <section className="container section">
         <SectionHeading
           eyebrow="Produtos prontos"
-          title="Acelere sua operação com soluções já estruturadas"
-          description="Escolha um pacote inicial e evolua com customizações, integrações e suporte contínuo."
+          title="Acelere sua operacao com solucoes ja estruturadas"
+          description="Escolha um pacote inicial e evolua com customizacoes, integracoes e suporte continuo."
           action={
             <Link href="/pricing" className="button button--ghost">
-              Ver preços
+              Ver precos
             </Link>
           }
         />
 
-        <div className="feature-grid feature-grid--three">
+        <div className="feature-grid feature-grid--three stagger-grid">
           {catalog.map((product) => (
             <article className="glass-card product-card" key={product.slug}>
               <span className="pill">{product.category}</span>
@@ -152,13 +152,13 @@ export default function HomePage() {
       </section>
 
       <section className="container section">
-        <div className="cta-banner glass-panel">
+        <div className="cta-banner glass-panel fade-up">
           <div>
             <span className="eyebrow">Pronto para evoluir</span>
-            <h2>Leve sua ideia para o próximo nível com uma operação digital premium.</h2>
+            <h2>Leve sua ideia para o proximo nivel com uma operacao digital premium.</h2>
             <p>
               Fale com o nosso time e descubra como a {siteConfig.name} pode transformar vendas, atendimento e
-              produto em uma só estratégia.
+              produto em uma so estrategia.
             </p>
           </div>
           <div className="cta-banner__actions">

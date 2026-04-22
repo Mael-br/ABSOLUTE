@@ -27,18 +27,18 @@ export default async function DashboardPage() {
 
   return (
     <div className="page-shell">
-      <section className="container page-hero">
+      <section className="container page-hero fade-up">
         <span className="eyebrow eyebrow--pill">Dashboard</span>
-        <h1>Olá, {user.name}. Aqui está o status das suas compras.</h1>
-        <p>Acompanhe seus pedidos, histórico de compras e entre em contato com o time sempre que precisar.</p>
+        <h1>Ola, {user.name}. Aqui esta o status das suas compras.</h1>
+        <p>Acompanhe seus pedidos, historico de compras e entre em contato com o time sempre que precisar.</p>
       </section>
 
       <section className="container section">
-        <div className="dashboard-grid">
+        <div className="dashboard-grid stagger-grid">
           <article className="glass-card dashboard-card">
             <span className="eyebrow">Resumo</span>
             <h2>{orders.length} pedidos registrados</h2>
-            <p>Seu histórico é atualizado automaticamente conforme o PagBank confirma o pagamento.</p>
+            <p>Seu historico e atualizado automaticamente conforme o PagBank confirma o pagamento.</p>
           </article>
 
           <article className="glass-card dashboard-card">
@@ -51,9 +51,9 @@ export default async function DashboardPage() {
           </article>
         </div>
 
-        <div className="glass-card order-table">
+        <div className="glass-card order-table fade-up reveal-delay-3">
           <div className="order-table__header">
-            <h2>Histórico de pedidos</h2>
+            <h2>Historico de pedidos</h2>
             <Link href="/products" className="button button--ghost">
               Comprar mais
             </Link>
@@ -61,7 +61,7 @@ export default async function DashboardPage() {
 
           {orders.length === 0 ? (
             <div className="empty-state">
-              <p>Você ainda não tem compras registradas.</p>
+              <p>Voce ainda nao tem compras registradas.</p>
               <Link href="/products" className="button button--primary">
                 Ver produtos
               </Link>

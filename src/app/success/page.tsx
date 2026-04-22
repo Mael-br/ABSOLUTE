@@ -22,15 +22,12 @@ export default async function SuccessPage({
   return (
     <div className="page-shell">
       <section className="container section success-panel">
-        <div className="glass-card success-card">
+        <div className="glass-card success-card fade-up">
           <span className="eyebrow eyebrow--pill">Pagamento aprovado</span>
-          <h1>
-            Falta apenas um passo para o seu sonho ser realizado; contate-nos no nosso servidor do discord para
-            finalizar o pedido.
-          </h1>
+          <h1>Falta apenas um passo para finalizar seu pedido com o nosso time.</h1>
           <p>
-            Nossa equipe vai alinhar implementação, briefing e próximos passos assim que você entrar em contato com o
-            suporte.
+            Entre no Discord oficial ou fale por e-mail para alinharmos implementacao, briefing e proximos passos do
+            projeto.
           </p>
 
           <div className="success-card__actions">
@@ -40,6 +37,9 @@ export default async function SuccessPage({
             <a href={`mailto:${siteConfig.contactEmail}`} className="button button--ghost">
               {siteConfig.contactEmail}
             </a>
+            <Link href="/dashboard" className="button button--secondary">
+              Ver dashboard
+            </Link>
           </div>
 
           <div className="success-summary">
@@ -64,7 +64,7 @@ export default async function SuccessPage({
                 </div>
               </div>
             ) : (
-              <p>Entre no dashboard para ver os detalhes do pedido assim que a confirmação for sincronizada.</p>
+              <p>Entre no dashboard para ver os detalhes do pedido assim que a confirmacao for sincronizada.</p>
             )}
           </div>
         </div>

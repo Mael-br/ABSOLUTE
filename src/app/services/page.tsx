@@ -6,23 +6,23 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { services } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Serviços"
+  title: "Servicos"
 };
 
 export default function ServicesPage() {
   return (
     <div className="page-shell">
-      <section className="container page-hero">
-        <span className="eyebrow eyebrow--pill">Serviços</span>
+      <section className="container page-hero fade-up">
+        <span className="eyebrow eyebrow--pill">Servicos</span>
         <h1>Arquitetamos tecnologia premium para marcas que precisam de velocidade e escala.</h1>
         <p>
-          Cada entrega combina design estratégico, engenharia sólida e automação inteligente para gerar impacto
-          mensurável no negócio.
+          Cada entrega combina design estrategico, engenharia solida e automacao inteligente para gerar impacto
+          mensuravel no negocio.
         </p>
       </section>
 
       <section className="container section">
-        <div className="stack-list">
+        <div className="stack-list stagger-grid">
           {services.map((service, index) => {
             const Icon = index === 0 ? BotIcon : index === 1 ? CodeIcon : DatabaseIcon;
 
@@ -48,7 +48,7 @@ export default function ServicesPage() {
                     {service.cta}
                     <ArrowIcon className="button__icon" />
                   </Link>
-                  <span>Preço inicial sob escopo, discovery e complexidade.</span>
+                  <span>Preco inicial ajustado conforme escopo, discovery e complexidade.</span>
                 </div>
               </article>
             );
@@ -59,14 +59,14 @@ export default function ServicesPage() {
       <section className="container section">
         <SectionHeading
           eyebrow="Processo"
-          title="Como construímos soluções com previsibilidade"
-          description="Um fluxo claro reduz risco técnico, acelera entregas e mantém a experiência premium do começo ao fim."
+          title="Como construimos solucoes com previsibilidade"
+          description="Um fluxo claro reduz risco tecnico, acelera entregas e mantem a experiencia premium do comeco ao fim."
         />
-        <div className="feature-grid feature-grid--three">
+        <div className="feature-grid feature-grid--three stagger-grid">
           {[
-            "Discovery técnico e de negócio para mapear oportunidades e riscos.",
-            "Protótipo e arquitetura definidos antes de entrar em produção.",
-            "Entrega iterativa com validação, QA, observabilidade e suporte."
+            "Discovery tecnico e de negocio para mapear oportunidades e riscos.",
+            "Prototipo e arquitetura definidos antes de entrar em producao.",
+            "Entrega iterativa com validacao, QA, observabilidade e suporte."
           ].map((item, index) => (
             <article className="glass-card mini-card" key={item}>
               <span className="mini-card__index">0{index + 1}</span>
@@ -78,4 +78,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-

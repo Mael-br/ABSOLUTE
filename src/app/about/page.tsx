@@ -9,23 +9,23 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="page-shell">
-      <section className="container page-hero">
+      <section className="container page-hero fade-up">
         <span className="eyebrow eyebrow--pill">Sobre a Absolute</span>
-        <h1>Design, engenharia e automação reunidos em uma marca de tecnologia premium.</h1>
+        <h1>Design, engenharia e automacao reunidos em uma marca de tecnologia premium.</h1>
         <p>
-          Nossa proposta é transformar necessidades digitais complexas em produtos elegantes, rápidos e seguros,
-          sempre com foco em impacto real para a operação do cliente.
+          Nossa proposta e transformar necessidades digitais complexas em produtos elegantes, rapidos e seguros,
+          sempre com foco em impacto real para a operacao do cliente.
         </p>
       </section>
 
       <section className="container section">
-        <div className="feature-grid feature-grid--three">
+        <div className="feature-grid feature-grid--three stagger-grid">
           <article className="glass-card narrative-card">
-            <span className="eyebrow">Missão</span>
+            <span className="eyebrow">Missao</span>
             <p>{brandNarrative.mission}</p>
           </article>
           <article className="glass-card narrative-card">
-            <span className="eyebrow">Visão</span>
+            <span className="eyebrow">Visao</span>
             <p>{brandNarrative.vision}</p>
           </article>
           <article className="glass-card narrative-card">
@@ -37,4 +37,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

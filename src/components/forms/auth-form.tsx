@@ -39,27 +39,27 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
       const result = (await response.json()) as { message?: string };
 
       if (!response.ok) {
-        setError(result.message ?? "Não foi possível concluir a autenticação.");
+        setError(result.message ?? "Nao foi possivel concluir a autenticacao.");
         return;
       }
 
       const target = nextPath.startsWith("/") ? nextPath : "/dashboard";
       window.location.href = target;
     } catch {
-      setError("Falha de conexão. Tente novamente.");
+      setError("Falha de conexao. Tente novamente.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <form className="glass-card auth-form" onSubmit={handleSubmit}>
+    <form className="glass-card auth-form fade-up reveal-delay-2" onSubmit={handleSubmit}>
       <span className="eyebrow">{mode === "login" ? "Acesse sua conta" : "Crie sua conta"}</span>
       <h1>{mode === "login" ? "Entrar na Absolute" : "Comece sua jornada com a Absolute"}</h1>
       <p>
         {mode === "login"
-          ? "Gerencie seus pedidos, acompanhe pagamentos e fale com o time em um só lugar."
-          : "Cadastre-se para comprar soluções prontas, acompanhar pedidos e receber suporte dedicado."}
+          ? "Gerencie seus pedidos, acompanhe pagamentos e fale com o time em um so lugar."
+          : "Cadastre-se para comprar solucoes prontas, acompanhar pedidos e receber suporte dedicado."}
       </p>
 
       {mode === "signup" ? (
@@ -79,7 +79,7 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
         <input
           name="password"
           type="password"
-          placeholder={mode === "signup" ? "Mínimo de 8 caracteres" : "Sua senha"}
+          placeholder={mode === "signup" ? "Minimo de 8 caracteres" : "Sua senha"}
           autoComplete={mode === "login" ? "current-password" : "new-password"}
           required
         />
@@ -89,10 +89,14 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
         {loading ? "Processando..." : mode === "login" ? "Entrar" : "Criar conta"}
       </button>
 
-      {error ? <p className="form-feedback form-feedback--error">{error}</p> : null}
+      {error ? (
+        <p className="form-feedback form-feedback--error" aria-live="polite">
+          {error}
+        </p>
+      ) : null}
 
       <p className="auth-form__switch">
-        {mode === "login" ? "Ainda não tem conta?" : "Já tem uma conta?"}{" "}
+        {mode === "login" ? "Ainda nao tem conta?" : "Ja tem uma conta?"}{" "}
         <Link href={mode === "login" ? "/signup" : "/login"}>{mode === "login" ? "Cadastre-se" : "Entrar"}</Link>
       </p>
     </form>

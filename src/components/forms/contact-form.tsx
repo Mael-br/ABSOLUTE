@@ -31,21 +31,21 @@ export function ContactForm() {
       const result = (await response.json()) as { message?: string };
 
       if (!response.ok) {
-        setError(result.message ?? "Não foi possível enviar sua mensagem.");
+        setError(result.message ?? "Nao foi possivel enviar sua mensagem.");
         return;
       }
 
       event.currentTarget.reset();
       setMessage(result.message ?? "Mensagem enviada com sucesso.");
     } catch {
-      setError("Falha de conexão. Tente novamente em instantes.");
+      setError("Falha de conexao. Tente novamente em instantes.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <form className="glass-card contact-form" onSubmit={handleSubmit}>
+    <form className="glass-card contact-form fade-up reveal-delay-1" onSubmit={handleSubmit}>
       <label className="field">
         <span>Nome</span>
         <input name="name" type="text" placeholder="Seu nome" required />
@@ -58,16 +58,23 @@ export function ContactForm() {
 
       <label className="field">
         <span>Descreva o projeto</span>
-        <textarea name="message" placeholder="Conte o que você precisa construir, automatizar ou escalar." rows={6} required />
+        <textarea name="message" placeholder="Conte o que voce precisa construir, automatizar ou escalar." rows={6} required />
       </label>
 
       <button className="button button--primary" type="submit" disabled={loading}>
         {loading ? "Enviando..." : "Enviar mensagem"}
       </button>
 
-      {message ? <p className="form-feedback form-feedback--success">{message}</p> : null}
-      {error ? <p className="form-feedback form-feedback--error">{error}</p> : null}
+      {message ? (
+        <p className="form-feedback form-feedback--success" aria-live="polite">
+          {message}
+        </p>
+      ) : null}
+      {error ? (
+        <p className="form-feedback form-feedback--error" aria-live="polite">
+          {error}
+        </p>
+      ) : null}
     </form>
   );
 }
-

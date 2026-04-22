@@ -34,7 +34,7 @@ export async function SiteHeader() {
             </>
           ) : (
             <Link href="/login" className="button button--ghost">
-              Log In / Sign Up
+              Entrar / Criar conta
             </Link>
           )}
         </div>
