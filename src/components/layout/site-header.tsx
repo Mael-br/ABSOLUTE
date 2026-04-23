@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-import { navigation } from "@/data/site";
 import { getCurrentUser } from "@/server/auth";
 import { BrandMark } from "@/components/ui/brand-mark";
+import { UserIcon } from "@/components/ui/icons";
 
 import { LogoutButton } from "@/components/layout/logout-button";
+import { SiteNav } from "@/components/layout/site-nav";
 
 export async function SiteHeader() {
   const user = await getCurrentUser();
@@ -16,13 +17,7 @@ export async function SiteHeader() {
           <BrandMark />
         </Link>
 
-        <nav className="site-nav" aria-label="Primary">
-          {navigation.map((item) => (
-            <Link key={item.href} href={item.href} className="site-nav__link">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <SiteNav />
 
         <div className="site-header__actions">
           {user ? (
@@ -33,8 +28,9 @@ export async function SiteHeader() {
               <LogoutButton />
             </>
           ) : (
-            <Link href="/login" className="button button--ghost">
-              Entrar / Criar conta
+            <Link href="/login" className="button button--outline site-header__auth">
+              <UserIcon className="icon" />
+              Log In / Sign Up
             </Link>
           )}
         </div>

@@ -10,7 +10,7 @@ const products = [
       "Bot multicanal com IA, roteamento inteligente e fluxos personalizados para atendimento, qualificação e pós-venda.",
     shortDescription: "Atendimento inteligente para Discord, WhatsApp e web.",
     category: "Bots Inteligentes",
-    priceInCents: 290000,
+    priceInCents: 69000,
     featured: true,
     badge: "Mais vendido",
     metadata: {
@@ -25,7 +25,7 @@ const products = [
       "Website institucional premium com SEO técnico, copy estratégica, animações refinadas e foco em conversão.",
     shortDescription: "Presença digital de alto padrão e carregamento veloz.",
     category: "Websites",
-    priceInCents: 390000,
+    priceInCents: 79000,
     featured: true,
     badge: "Launch ready",
     metadata: {
@@ -40,7 +40,7 @@ const products = [
       "API segura, documentada e escalável com autenticação, observabilidade, webhooks e integrações sob medida.",
     shortDescription: "Backends robustos para produtos e automações críticas.",
     category: "APIs",
-    priceInCents: 590000,
+    priceInCents: 89000,
     featured: false,
     badge: "B2B",
     metadata: {

@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { SESSION_COOKIE, verifySessionToken } from "@/lib/auth";
+import { findLocalUserById, isDatabaseUnavailableError } from "@/lib/local-store";
 import { prisma } from "@/lib/prisma";
 
 export async function getCurrentSession() {
@@ -26,15 +27,34 @@ export async function getCurrentUser() {
     return null;
   }
 
-  return prisma.user.findUnique({
-    where: { id: session.sub },
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      createdAt: true
+  try {
+    return await prisma.user.findUnique({
+      where: { id: session.sub },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        createdAt: true
+      }
+    });
+  } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      const user = await findLocalUserById(session.sub);
+
+      if (!user) {
+        return null;
+      }
+
+      return {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        createdAt: user.createdAt
+      };
     }
-  });
+
+    throw error;
+  }
 }
 
 export async function requireUser() {

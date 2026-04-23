@@ -9,6 +9,17 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  async function readResponse(response: Response) {
+    const contentType = response.headers.get("content-type") ?? "";
+
+    if (contentType.includes("application/json")) {
+      return (await response.json()) as { message?: string };
+    }
+
+    const text = await response.text();
+    return { message: text || undefined };
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
@@ -36,7 +47,7 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
         body: JSON.stringify(payload)
       });
 
-      const result = (await response.json()) as { message?: string };
+      const result = await readResponse(response);
 
       if (!response.ok) {
         setError(result.message ?? "Nao foi possivel concluir a autenticacao.");
@@ -44,7 +55,7 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
       }
 
       const target = nextPath.startsWith("/") ? nextPath : "/dashboard";
-      window.location.href = target;
+      window.location.assign(target);
     } catch {
       setError("Falha de conexao. Tente novamente.");
     } finally {
@@ -53,7 +64,7 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
   }
 
   return (
-    <form className="glass-card auth-form fade-up reveal-delay-2" onSubmit={handleSubmit}>
+    <form className="glass-card auth-form fade-up reveal-delay-2" onSubmit={handleSubmit} noValidate>
       <span className="eyebrow">{mode === "login" ? "Acesse sua conta" : "Crie sua conta"}</span>
       <h1>{mode === "login" ? "Entrar na Absolute" : "Comece sua jornada com a Absolute"}</h1>
       <p>
@@ -65,13 +76,20 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
       {mode === "signup" ? (
         <label className="field">
           <span>Nome</span>
-          <input name="name" type="text" placeholder="Seu nome" autoComplete="name" required />
+          <input name="name" type="text" placeholder="Seu nome" autoComplete="name" required disabled={loading} />
         </label>
       ) : null}
 
       <label className="field">
         <span>E-mail</span>
-        <input name="email" type="email" placeholder="voce@empresa.com" autoComplete="email" required />
+        <input
+          name="email"
+          type="email"
+          placeholder="voce@empresa.com"
+          autoComplete="email"
+          required
+          disabled={loading}
+        />
       </label>
 
       <label className="field">
@@ -82,6 +100,7 @@ export function AuthForm({ mode, nextPath = "/dashboard" }: { mode: Mode; nextPa
           placeholder={mode === "signup" ? "Minimo de 8 caracteres" : "Sua senha"}
           autoComplete={mode === "login" ? "current-password" : "new-password"}
           required
+          disabled={loading}
         />
       </label>
 

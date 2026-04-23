@@ -34,6 +34,11 @@ export type PricingPlan = {
   recommended?: boolean;
 };
 
+export type FooterLinkItem = {
+  label: string;
+  href: string;
+};
+
 export const siteConfig = {
   name: "Absolute",
   description:
@@ -56,6 +61,13 @@ export const navigation: NavItem[] = [
   { href: "/pricing", label: "Precos" },
   { href: "/about", label: "Sobre" },
   { href: "/contact", label: "Contato" }
+];
+
+export const footerResources: FooterLinkItem[] = [
+  { label: "Documentacao", href: "/services" },
+  { label: "Cases", href: "/products" },
+  { label: "Status", href: "/pricing" },
+  { label: "Comunidade", href: siteConfig.discordUrl }
 ];
 
 export const stats = [
@@ -140,7 +152,7 @@ export const catalog: ProductItem[] = [
       "Bot pronto para operar em Discord, WhatsApp e web com atendimento inteligente, qualificacao de leads e comandos personalizados.",
     shortDescription: "Atendimento inteligente para vendas e suporte.",
     category: "Bots Inteligentes",
-    priceInCents: 290000,
+    priceInCents: 69000,
     badge: "Mais vendido",
     featured: true
   },
@@ -151,7 +163,7 @@ export const catalog: ProductItem[] = [
       "Website premium com design autoral, SEO tecnico, copy orientada a conversao e arquitetura pensada para performance.",
     shortDescription: "Presenca digital premium pronta para converter.",
     category: "Websites",
-    priceInCents: 390000,
+    priceInCents: 79000,
     badge: "Launch ready",
     featured: true
   },
@@ -162,7 +174,7 @@ export const catalog: ProductItem[] = [
       "API robusta com autenticacao, observabilidade, documentacao e integracoes sob medida para operacoes criticas.",
     shortDescription: "Backend seguro e escalavel para automacoes e produtos.",
     category: "APIs",
-    priceInCents: 590000,
+    priceInCents: 89000,
     badge: "B2B",
     featured: false
   }
@@ -171,7 +183,7 @@ export const catalog: ProductItem[] = [
 export const pricingPlans: PricingPlan[] = [
   {
     name: "Start",
-    price: "A partir de R$ 2.900",
+    price: "A partir de R$ 490",
     description: "Para empresas que precisam validar rapidamente uma solucao premium.",
     highlights: [
       "Escopo inicial orientado por estrategia",
@@ -182,7 +194,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "Scale",
-    price: "A partir de R$ 5.900",
+    price: "A partir de R$ 790",
     description: "Projetos mais completos com integracoes, automacoes e arquitetura robusta.",
     highlights: [
       "Fluxos complexos e integracoes externas",
@@ -194,7 +206,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "Custom",
-    price: "Sob consulta",
+    price: "A partir de R$ 890",
     description: "Para operacoes criticas, produtos proprietarios e necessidades enterprise.",
     highlights: [
       "Discovery tecnico e de negocio",

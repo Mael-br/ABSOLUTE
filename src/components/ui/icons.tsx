@@ -73,3 +73,87 @@ export function ArrowIcon({ className }: IconProps) {
   );
 }
 
+export function UserIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+      <path d="M5 20a7 7 0 0 1 14 0" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function DiscordIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <path
+        d="M8.6 7.5A15 15 0 0 1 12 7c1.2 0 2.4.2 3.4.5m-6.8 0A11.8 11.8 0 0 0 6 17.3c1.7 1.2 3.8 1.7 6 1.7s4.3-.5 6-1.7a11.8 11.8 0 0 0-2.6-9.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M9.5 14h.01M14.5 14h.01" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 17c1 .7 2 .9 3 .9s2-.2 3-.9" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function TelegramIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path d="m21 4-8.5 16-2.7-6.7L3 10.6 21 4Z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m21 4-11.2 9.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function InstagramIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <rect x="4" y="4" width="16" height="16" rx="5" />
+      <circle cx="12" cy="12" r="3.8" />
+      <path d="M16.9 7.2h.01" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function LinkedinIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M7 10v7M7 7h.01M12 17v-4.2c0-1.5 1.2-2.8 2.8-2.8s2.2 1.1 2.2 2.6V17" strokeLinecap="round" />
+      <path d="M12 10v1" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function GithubIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path
+        d="M9 18c-3.4 1-3.4-1.9-4.8-2.4M19 18v-2.9a3.6 3.6 0 0 0-1-2.6c3.3-.4 5-1.8 5-5.3a4.1 4.1 0 0 0-1.1-2.8 3.8 3.8 0 0 0-.1-2.8s-1-.3-3.1 1.1a10.9 10.9 0 0 0-5.7 0C10.9 1.3 10 1.6 10 1.6a3.8 3.8 0 0 0-.1 2.8 4.1 4.1 0 0 0-1.1 2.8c0 3.5 1.7 4.9 5 5.3a3.2 3.2 0 0 0-.9 2.5V18"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function PhoneIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path
+        d="M6.8 4h2.4l1.4 4-1.8 1.8a15.4 15.4 0 0 0 5.4 5.4L16 13.4l4 1.4v2.4a1.9 1.9 0 0 1-2.1 1.9A16.8 16.8 0 0 1 5 6.1 1.9 1.9 0 0 1 6.8 4Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function MapPinIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z" />
+      <circle cx="12" cy="10" r="2.3" />
+    </svg>
+  );
+}
+

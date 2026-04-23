@@ -31,10 +31,10 @@ npm install
 
 ```bash
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/absolute"
-JWT_SECRET="seu-segredo-forte"
+JWT_SECRET="local-dev-secret"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
-CONTACT_EMAIL="contato@absolute.dev"
-DISCORD_INVITE_URL="https://discord.gg/absolute"
+CONTACT_EMAIL="absolute.tech.48@gmail.com"
+DISCORD_INVITE_URL="https://discord.gg/tuazUaSdt"
 PAGBANK_API_URL="https://sandbox.api.pagseguro.com"
 PAGBANK_TOKEN="seu-token-pagbank"
 PAGBANK_WEBHOOK_TOKEN="segredo-do-webhook"

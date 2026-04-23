@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getPagBankConfig } from "@/lib/env";
+import { findLocalOrderById, isDatabaseUnavailableError, updateLocalOrder } from "@/lib/local-store";
 import { mapPagBankChargeStatus } from "@/lib/pagbank";
 import { prisma } from "@/lib/prisma";
 
@@ -23,24 +24,61 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Missing reference id." }, { status: 400 });
     }
 
-    const order = await prisma.order.findUnique({
-      where: { id: referenceId }
-    });
+    let order: {
+      id: string;
+      pagBankCheckoutId?: string | null;
+      pagBankChargeId?: string | null;
+    } | null = null;
+
+    try {
+      order = await prisma.order.findUnique({
+        where: { id: referenceId },
+        select: {
+          id: true,
+          pagBankCheckoutId: true,
+          pagBankChargeId: true
+        }
+      });
+    } catch (error) {
+      if (!isDatabaseUnavailableError(error)) {
+        throw error;
+      }
+
+      order = await findLocalOrderById(referenceId);
+    }
 
     if (!order) {
       return NextResponse.json({ message: "Order not found." }, { status: 200 });
     }
 
-    await prisma.order.update({
-      where: { id: order.id },
-      data: {
-        status: mapPagBankChargeStatus(charge?.status ?? payload.status) as
-          | "WAITING_PAYMENT"
-          | "PROCESSING"
-          | "PAID"
-          | "FAILED"
-          | "CANCELLED"
-          | "REFUNDED",
+    try {
+      await prisma.order.update({
+        where: { id: order.id },
+        data: {
+          status: mapPagBankChargeStatus(charge?.status ?? payload.status) as
+            | "WAITING_PAYMENT"
+            | "PROCESSING"
+            | "PAID"
+            | "FAILED"
+            | "CANCELLED"
+            | "REFUNDED",
+          pagBankCheckoutId: payload.id ?? order.pagBankCheckoutId ?? undefined,
+          pagBankChargeId: charge?.id ?? order.pagBankChargeId ?? undefined,
+          timeline: {
+            lastWebhookAt: new Date().toISOString(),
+            checkoutStatus: payload.status ?? null,
+            chargeStatus: charge?.status ?? null,
+            paymentMethod: charge?.payment_method?.type ?? null
+          }
+        }
+      });
+    } catch (error) {
+      if (!isDatabaseUnavailableError(error)) {
+        throw error;
+      }
+
+      await updateLocalOrder(order.id, {
+        status: mapPagBankChargeStatus(charge?.status ?? payload.status),
         pagBankCheckoutId: payload.id ?? order.pagBankCheckoutId ?? undefined,
         pagBankChargeId: charge?.id ?? order.pagBankChargeId ?? undefined,
         timeline: {
@@ -49,8 +87,8 @@ export async function POST(request: Request) {
           chargeStatus: charge?.status ?? null,
           paymentMethod: charge?.payment_method?.type ?? null
         }
-      }
-    });
+      });
+    }
 
     return NextResponse.json({ received: true });
   } catch {
